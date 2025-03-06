@@ -1,35 +1,62 @@
-# wd2s_system_0.0.1
+<div>
+<img align="right" alt="YARN" title="Yarn" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/yarn/yarn-original.svg" />
+<img align="right" alt="ESLINT" title="Eslint" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg" />
+<img align="right" alt="CSS" title="Css" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" />
+<img align="right" alt="JAVASCRIPT" title="JavaScript" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+<img align="right" alt="HTML" title="Html" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+<img align="right" alt="VUE.JS" title="Vue.js" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" />
+<h1>wd2s-system</h1>
+</div>
+## Índice 
+- [Instalação](#instalação) 
 
-This template should help get you started developing with Vue 3 in Vite.
+- [Uso](#uso)
+  
+- [Estrutura do Projeto](#estrutura-do-projeto)
+  
+- [Tecnologias Utilizadas](#tecnologias-utilizadas) 
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Instalação 
+```bash 
+# Clonar o repositório
+git clone https://github.com/seu-usuario/seu-repositorio.git
 
-## Customize configuration
+# Navegar até o diretório do projeto
+cd seu-repositorio
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+# Instalar as dependências usando
+Yarn yarn install
+``` 
 
-## Project Setup
+## Uso 
 
-```sh
-yarn
+``` 
+# Iniciar o servidor de desenvolvimento yarn dev
+``` 
+
+## Estrutura do projeto 
 ```
+├── public
+├── src
+│ ├── assets
+│ ├── components
+│ ├── router
+│ ├── store
+│ ├── views
+│ ├── App.vue
+│ └── main.js
+├── index.html
+├── package.json
+├── .editorconfig
+├── .prettierrc.json
+├── eslint.config.js
+│ └── yarn.lock
+├── README.md
+├──vite.config.js
+  └── jsconfig.json
+``` 
 
-### Compile and Hot-Reload for Development
+## Tecnologias utilizadas
 
-```sh
-yarn dev
-```
-
-### Compile and Minify for Production
-
-```sh
-yarn build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-yarn lint
-```
+Vue.js | Vuex | Vue Router | Yarn | Prettier | ESLint
