@@ -11,6 +11,7 @@ export default {
       name: 'HomeView',
       passwordVisible: false,
       userIdentify: {
+        id: '',
         name: '',
         email: '',
         pass: '',
@@ -26,39 +27,43 @@ export default {
       this.passwordVisible = !this.passwordVisible
     },
     toLogin() {
-      if (
-        (this.cardType == 'login' && this.userIdentify.email == '') ||
-        (this.cardType == 'login' && this.userIdentify.pass == '')
-      ) {
-        this.noUser = 'Preencha todos os campos'
-      } else if (
-        this.cardType == 'login' &&
-        this.userIdentify.email == this.$store.state.user.email &&
-        this.userIdentify.pass == this.$store.state.user.pass
-      ) {
-        this.direct = '/access'
-      } else {
-        this.noUser = 'Usuario nao econtrado! (verifique usuario e senha)'
+      let matchedUser
+      if (this.cardType == 'login') {
+        if (this.userIdentify.email == '' || this.userIdentify.pass == '') {
+          this.noUser = 'Preencha todos os campos'
+        } else {
+          matchedUser = this.$store.state.users.find(
+            (user) =>
+              user.email === this.userIdentify.email && user.pass === this.userIdentify.pass,
+          )
+          if (matchedUser) {
+            this.$store.commit('setLoggedUser', matchedUser)
+            this.direct = '/access'
+          } else {
+            this.noUser = 'Usuario nao econtrado! (verifique usuario e senha)'
+          }
+        }
       }
     },
     toRegister() {
+      const userCount = this.$store.state.users.length
       const localUser = { ...this.userIdentify }
       if (
         this.userIdentify.name != '' &&
         this.userIdentify.email != '' &&
         this.userIdentify.pass != '' &&
-        this.userIdentify.email == this.$store.state.user.email
+        this.$store.state.users.some((user) => user.email === this.userIdentify.email)
       ) {
         this.msgRegister = 'Email ja cadastrado'
-        console.log('email ja cadastrado' + this.msgRegister)
       } else if (
         this.userIdentify.name == '' ||
         this.userIdentify.email == '' ||
         this.userIdentify.pass == ''
       ) {
         this.msgRegister = 'Todos os campos precisam ser preenchidos'
-      } else if (this.userIdentify.email != this.$store.state.user.email) {
-        this.$store.commit('alterUser', localUser)
+      } else if (!this.$store.state.users.some((user) => user.email === this.userIdentify.email)) {
+        localUser.id = userCount
+        this.$store.commit('addUser', localUser)
         this.msgRegister = 'Cadastro efetuado'
         console.log('cadastro feito' + this.msgRegister)
       }
@@ -108,6 +113,7 @@ export default {
       </router-link>
     </div>
     <div>
+      <pre>{{ $store.state.users }}</pre>
       <p>{{ this.cardType == 'register' ? msgRegister : noUser }}</p>
     </div>
   </div>

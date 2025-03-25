@@ -2,16 +2,30 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    user: {
-      name: '',
-      email: '',
-      pass: '',
-    },
+    users: [
+      {
+        user: {
+          id: '',
+          name: '',
+          email: '',
+          pass: '',
+        },
+      },
+    ],
+    loggedUser: { id: '', name: '', email: '', pass: '' },
   },
-  getters: {},
+  getters: {
+    getLoggedtUser: (state) => state.loggedUser,
+  },
   mutations: {
     alterUser(state, data) {
-      this.state.user = data
+      state.user = data
+    },
+    addUser(state, newUser) {
+      state.users.push(newUser)
+    },
+    setLoggedUser(state, user) {
+      state.loggedUser = user
     },
   },
   actions: {},

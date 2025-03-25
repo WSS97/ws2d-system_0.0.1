@@ -1,20 +1,5 @@
-<script>
-import CardAccess from '@/components/CardAccess.vue'
-export default {
-  components: {
-    CardAccess,
-  },
-  data() {},
-  methods: {
-    props: {},
-  },
-}
-</script>
-
+<script></script>
 <template>
-  <div class="home">
-    <CardAccess :card-type="'login'" />
-  </div>
+  <div></div>
 </template>
-
 <style scoped></style>

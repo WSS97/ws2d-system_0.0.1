@@ -1,16 +1,18 @@
-<script></script>
-
 <template>
   <div>
-    <h1>Olá</h1>
     <h2>
-      Seja bem vindo <span class="user">{{ this.$store.state.user.name }}</span>
+      Bem vindo <span>{{ $store.state.loggedUser.name }}</span>
     </h2>
+    <section></section>
+    <section></section>
+    <section></section>
   </div>
 </template>
 
-<style>
-.user {
-  color: #42b983;
+<script>
+export default {
+  components: {},
 }
-</style>
+</script>
+
+<style scoped></style>
